@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lavender: "#E4EBF5",
+              CornflowerBlue: "#66A1FF",
+              CelticBlue: "#2F6DCE",
+            },
+            boxShadow: {
+              custom:
+                "0.3rem 0.3rem 0.6rem #c8d0e7, -0.3rem -0.3rem 0.6rem #fff;",
+            },
+            spacing: {
+              25: "6.25rem",
+              97.5: "24.375rem",
+              145: "36.25rem",
+            },
+            borderRadius: {
+              med: "3.125rem",
+            },
+
+            keyframes: {
+              bganimation: {
+                " 0% ": {
+                  "background-position": " 0% 50%",
+                },
+                "50%": {
+                  "background-position": "100% 50%",
+                },
+                "100%": {
+                  "background-position": " 0% 50%",
+                  "background-color": "white",
+                },
+              },
+            },
+            animation: {
+              bganimation: "bganimation 3s infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .bg-black {
+          background-color: black;
+        }
+        .insetShadow {
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #c8d0e7,
+            inset -0.3rem -0.3rem 0.6rem #fff;
+        }
+        .bgs-400 {
+          background-size: 400% 400%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-lavender h-screen flex items-center justify-center">
+    <section
+      class="bg-lavender shadow-custom w-97.5 h-145 rounded-med py-10 px-5 rounded-med"
+    >
+      <div class="w-25 h-25 my-16 mx-auto insetShadow rounded-med p-4">
+        <img src="img/user.webp" class="w-full" />
+      </div>
+      <form
+        action=""
+        class="[&>div]:h-10 [&>div]:mb-4 [&>div]:rounded-med [&>div]:insetShadow [&>div>input]:w-full [&>div>input]:border-none [&>div>input]:h-full [&>div>input]:bg-transparent [&>div>input]:pl-4 [&>div>input]:outline-none"
+      >
+        <div>
+          <input type="email" placeholder="Email" />
+        </div>
+        <div>
+          <input type="password" placeholder="Password" />
+        </div>
+        <button
+          type="submit"
+          class="animate-bganimation bgs-400 text-white pointer w-full h-10 bg-gradient-to-r from-CornflowerBlue to-CelticBlue rounded-med"
+        >
+          Login
+        </button>
+      </form>
+    </section>
+  </body>
+</html>
